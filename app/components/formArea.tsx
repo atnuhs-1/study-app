@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { postTodo } from "../actions/postTodoAction";
@@ -22,6 +22,8 @@ export const formSchema = z.object({
 });
 
 const FormArea = () => {
+  const ref = useRef<HTMLFormElement>(null);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -30,30 +32,33 @@ const FormArea = () => {
   });
 
   async function onSubmit(value: z.infer<typeof formSchema>) {
-    const {content} = value
-    postTodo({content})
+    const { content } = value;
+    postTodo({ content });
   }
 
   return (
     <Form {...form}>
       <form
+        ref={ref}
         onSubmit={form.handleSubmit(onSubmit)}
-        className="m-8"
+        className="m-8 flex"
       >
         <FormField
           control={form.control}
           name="content"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>content</FormLabel>
               <FormControl>
-                <Input placeholder="" {...field} />
+                <Input placeholder="" {...field} className="rounded" />
               </FormControl>
-              <FormMessage className="text-red-500"/>
+              <FormMessage className="text-red-500" />
             </FormItem>
           )}
         />
-        <Button variant="outline" type="submit" className="mt-2 rounded">submit</Button>
+
+        <Button variant="outline" type="submit" className="ml-4 rounded">
+          add
+        </Button>
       </form>
     </Form>
   );

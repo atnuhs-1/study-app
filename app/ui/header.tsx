@@ -11,8 +11,8 @@ const Header = () => {
           <span className="font-semibold">Todos</span>
         </Link>
         <nav className="ml-auto flex gap-4">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Home
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/test">
+            TestPage
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
             Tasks

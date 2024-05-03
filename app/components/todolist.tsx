@@ -8,7 +8,7 @@ interface TodoAllDataProps {
 
 const TodoList = ({ todoAllData }: TodoAllDataProps) => {
   return (
-    <div>
+    <div className="">
       {todoAllData.map((todoData: TodoData) => (
         <Todo key={todoData.id} todoData={todoData} />
       ))}

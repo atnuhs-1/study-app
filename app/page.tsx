@@ -1,9 +1,7 @@
-import { TodoLayout } from "@/components/todo-layout";
-import { Button } from "@/components/ui/button";
 import { TodoData } from "./types/types";
 import TodoList from "./components/todolist";
 import FormArea from "./components/formArea";
-
+import { getAllTodo } from "./actions/postTodoAction";
 
 export default async function Home() {
   async function getTodoAllData() {
@@ -15,12 +13,14 @@ export default async function Home() {
     return todoAllData;
   }
 
-  const todoAllData = await getTodoAllData();
+  const todoAllData = await getAllTodo();
 
   return (
-    <div>
-      <FormArea />
-      <TodoList todoAllData={todoAllData}/>
+    <div className="flex h-screen items-center justify-center">
+      <div className="w-96">
+        <FormArea />
+        <TodoList todoAllData={todoAllData} />
+      </div>
     </div>
   );
 }
