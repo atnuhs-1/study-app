@@ -6,7 +6,7 @@ import React from 'react'
 const Header = () => {
   return (
     <header className="flex items-center h-14 px-4 border-b">
-        <Link className="flex items-center gap-2" href="#">
+        <Link className="flex items-center gap-2" href="/">
           <CalendarIcon className="h-6 w-6" />
           <span className="font-semibold">Todos</span>
         </Link>
