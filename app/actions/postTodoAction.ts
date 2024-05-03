@@ -27,7 +27,6 @@ export const getAllTodo = async () => {
 export const postTodo = async ({ content }: z.infer<typeof formSchema>) => {
   const username = "test";
 
-  ref.current
 
   await prisma.post.create({
     data: {
