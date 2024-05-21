@@ -7,7 +7,9 @@ export default async function DocsPage() {
     const session = await auth();
   return (
     <div>
-        
+        <ReactMarkdown >
+            {}
+        </ReactMarkdown>
     </div>
   )
 }

@@ -4,21 +4,18 @@ import Google from "next-auth/providers/google";
 const protectedRoute = ["/test"];
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  pages: {
-    signIn: "/login",
-  },
   providers: [Google],
   basePath: "/api/auth",
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
-      const isLoggedIn = !!auth?.user;
+      const isLoggedIn = !!auth?.user; // !!は真偽値に変換
       const isProtectedRoute = protectedRoute.includes(nextUrl.pathname);
-      console.log(isProtectedRoute);
-      if (isProtectedRoute) {
-        if (isLoggedIn) {
+      if (isProtectedRoute) { // プロテクトされたページにアクセス
+        if (isLoggedIn) { // ログイン済み
           return true;
-        } 
-        return false;
+        } else {
+            return false;
+        }
       }
 
       return true;

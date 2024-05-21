@@ -21,7 +21,7 @@ async function UserButton() {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost">
+          <Button variant="ghost" className="relative w-10 h-10 rounded-full">
             <Avatar>
               {session.user.image && (
                 <AvatarImage
@@ -29,7 +29,7 @@ async function UserButton() {
                   alt={session.user.name ?? ""}
                 />
               )}
-              <AvatarFallback>{session.user.email}</AvatarFallback>
+              {/* <AvatarFallback>{session.user.email}</AvatarFallback> */}
             </Avatar>
           </Button>
         </DropdownMenuTrigger>

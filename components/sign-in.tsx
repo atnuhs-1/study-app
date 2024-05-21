@@ -6,10 +6,10 @@ export function SignIn({provider}: {provider?: string}) {
     <form
       action={async () => {
         "use server"
-        await signIn("google")
+        await signIn()
       }}
     >
-        <Button >SignIn</Button>
+        <Button className="">SignIn</Button>
       {/* <button type="submit">SignIn</button> */}
     </form>
   )

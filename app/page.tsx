@@ -17,7 +17,7 @@ export default async function Home() {
 
   const todoAllData = await getAllTodo();
   const session = await auth();
-  console.log(session);
+  // console.log(session);
 
   return (
     <>
