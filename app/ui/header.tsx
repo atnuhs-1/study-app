@@ -21,8 +21,8 @@ const Header = () => {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/docs">
             Docs
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Completed
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/example">
+            UI
           </Link>
           <UserButton />
         </nav>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Example() {
   return (
-    <div className="container">
+    <div className="container size-2/3">
       {/* Card Grid */}
       <div className="py-12 grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
         {/* Card */}

@@ -1,14 +1,9 @@
 import React from "react";
-<<<<<<< HEAD:app/(header)/test/page.tsx
 import fs from "fs";
 import path from "path";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import CodeBlock from "@/components/CodeBlock";
+import MarkdownSection from "./components/markdown-section";
 
-=======
->>>>>>> parent of b1e41fa (add md, docs, example/nino):app/test/page.tsx
+
 const todos = [
   { id: 0, text: "a" },
   { id: 0, text: "a" },
@@ -18,47 +13,22 @@ const todos = [
 
 const items = ["item1", "item2", "item3", "item4", "item5", "item6"];
 
-const TestPage = () => {
+const getMdData = async () => {
+  console.log(process.cwd());
+  const fullPath = path.join(process.cwd(), "/public/mds/test.md");
+  console.log(fullPath);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  return fileContents;
+};
+
+const TestPage = async () => {
+  const data = await getMdData();
   return (
     <>
-<<<<<<< HEAD:app/(header)/test/page.tsx
-<<<<<<< HEAD:app/(header)/test/page.tsx
-      <div className="container w-3/5 justify-start flex">
-        <MarkDownSection data={data}/>
-=======
-      <div className="container">
-        a
-        <ReactMarkdown
-          children={data}
-          components={{
-            code(props) {
-              const { children, className, node, ...rest } = props;
-              const match = /language-(\w+)/.exec(className || "");
-              return match ? (
-                <SyntaxHighlighter
-                  {...rest}
-                  PreTag="div"
-                  children={String(children).replace(/\n$/, "")}
-                  language={match[1]}
-                  style={dark}
-                />
-              ) : (
-                <code {...rest} className={className}>
-                  {children}
-                </code>
-              );
-            },
-          }}
-        />
-        {/* <ReactMarkdown source={data} renderers={{ code: CodeBlock }} /> */}
-        {/* <SyntaxHighlighter language="javascript" style={vs2015}>
-        {data}
-      </SyntaxHighlighter> */}
->>>>>>> parent of 30a301c (broken):app/test/page.tsx
+      <div className="container w-2/3 justify-center flex">
+        <MarkdownSection data={data} />
       </div>
 
-=======
->>>>>>> parent of b1e41fa (add md, docs, example/nino):app/test/page.tsx
       <main className="flex h-screen items-center justify-center">
         <div className="w-96">
           <h1 className="sr-only">Todos</h1>
