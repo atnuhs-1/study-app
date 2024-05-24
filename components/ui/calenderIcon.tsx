@@ -1,4 +1,4 @@
-export function CalendarIcon({...props}) {
+export function CalendarIcon({props}) {
     return (
       <svg
         {...props}
