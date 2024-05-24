@@ -1,10 +1,7 @@
 import React from "react";
 import fs from "fs";
 import path from "path";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import CodeBlock from "@/components/CodeBlock";
+import MarkDownSection from "./components/mark-down-section";
 
 const todos = [
   { id: 0, text: "a" },
@@ -27,34 +24,8 @@ const TestPage = async () => {
   const data = await getMdData();
   return (
     <>
-      <div className="container">
-        a
-        <ReactMarkdown
-          children={data}
-          components={{
-            code(props) {
-              const { children, className, node, ...rest } = props;
-              const match = /language-(\w+)/.exec(className || "");
-              return match ? (
-                <SyntaxHighlighter
-                  {...rest}
-                  PreTag="div"
-                  children={String(children).replace(/\n$/, "")}
-                  language={match[1]}
-                  style={dark}
-                />
-              ) : (
-                <code {...rest} className={className}>
-                  {children}
-                </code>
-              );
-            },
-          }}
-        />
-        {/* <ReactMarkdown source={data} renderers={{ code: CodeBlock }} /> */}
-        {/* <SyntaxHighlighter language="javascript" style={vs2015}>
-        {data}
-      </SyntaxHighlighter> */}
+      <div className="container w-3/5 justify-start flex">
+        <MarkDownSection data={data}/>
       </div>
 
       <main className="flex h-screen items-center justify-center">

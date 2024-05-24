@@ -2,7 +2,7 @@ import React from "react";
 
 function Example() {
   return (
-    <div className="container">
+    <div className="container size-3/5">
       {/* Card Grid */}
       <div className="py-12 grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
         {/* Card */}
@@ -20,19 +20,17 @@ function Example() {
               html-css-tailwind-beginner
             </h3>
             <p className="mt-1 text-gray-600 dark:text-neutral-400">
-              ninoさんの初心者向け：HTML/CSS/Tailwind CSS
+              nino:webサイト Next.jsなし
             </p>
 
             <div className="mt-3 flex flex-wrap gap-2">
               <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-                Discovery
+                HTML
               </span>
               <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-                Brand Guidelines
+                Tailwind CSS
               </span>
-              <span className="py-1.5 px-3 bg-white text-gray-600 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
-                Yoga
-              </span>
+              
             </div>
           </div>
         </a>

@@ -1,7 +1,7 @@
-import { TodoData } from "./types/types";
-import TodoList from "./components/todolist";
-import FormArea from "./components/formArea";
-import { getAllTodo } from "./actions/postTodoAction";
+import { TodoData } from "../types/types";
+import TodoList from "../components/todolist";
+import FormArea from "../components/formArea";
+import { getAllTodo } from "../actions/postTodoAction";
 import Image from "next/image";
 import { auth } from "@/auth";
 
