@@ -3,8 +3,6 @@ import fs from "fs";
 import path from "path";
 import MarkdownSection from "./components/markdown-section";
 import Flask from "@/app/components/flask";
-import { getFileList } from "@/app/data/static";
-import PlayVideo from "./components/play-video";
 
 const todos = [
   { id: 0, text: "a" },
@@ -23,15 +21,13 @@ const getMdData = async () => {
 
 const TestPage = async () => {
   const data = await getMdData();
-  const fileList = await getFileList();
 
   return (
     <>
       <div className="container w-2/3 justify-center flex">
         <MarkdownSection data={data} />
       </div>
-      <Flask />
-      <PlayVideo fileList={fileList} />
+      {/* <Flask /> */}
 
       <main className="flex h-screen items-center justify-center">
         <div className="w-96">

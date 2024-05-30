@@ -9,7 +9,7 @@ export default function Layout({
   return (
     <div>
       <Button className="fixed top-16 left-1" variant="outline" asChild>
-        <Link href="/test">Home</Link>
+        <Link href="/">Home</Link>
       </Button>
       {children}
     </div>

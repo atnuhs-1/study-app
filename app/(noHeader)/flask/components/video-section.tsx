@@ -1,4 +1,4 @@
-import PlayVideo from "@/app/(header)/test/components/play-video";
+import PlayVideo from "./play-video";
 
 export default function VideoSection() {
   return (

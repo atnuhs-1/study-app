@@ -10,11 +10,11 @@ export default function Nav() {
   };
   return (
     <div>
-      <nav className="space-x-5 flex">
+      <nav className="space-x-5 flex items-start">
         <button
           onClick={handleMenuOpen}
           type="button"
-          className="z-10 space-y-1"
+          className="z-10 space-y-1 pt-1"
         >
           {/* <div
         className={
@@ -44,7 +44,7 @@ export default function Nav() {
         {/* nav */}
 
         <Link href="#">
-          <Image src="/play.png" alt="a" width="30" height="30" />
+          <Image src="/play.png" alt="a" width="20" height="20" />
         </Link>
       </nav>
       <nav

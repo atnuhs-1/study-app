@@ -1,5 +1,4 @@
 "use client";
-import { getFileList } from "@/app/data/static";
 import ReactPlayer from "react-player/lazy";
 
 // { fileList }: { fileList: string[] }
@@ -20,6 +19,7 @@ export default async function PlayVideo() {
         />
         Your browser does not support the video tag.
       </video>
+
       {/* <ReactPlayer
         width="360px"
         height="240px"
