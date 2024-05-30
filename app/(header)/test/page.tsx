@@ -2,7 +2,9 @@ import React from "react";
 import fs from "fs";
 import path from "path";
 import MarkdownSection from "./components/markdown-section";
-
+import Flask from "@/app/components/flask";
+import { getFileList } from "@/app/data/static";
+import PlayVideo from "./components/play-video";
 
 const todos = [
   { id: 0, text: "a" },
@@ -14,20 +16,22 @@ const todos = [
 const items = ["item1", "item2", "item3", "item4", "item5", "item6"];
 
 const getMdData = async () => {
-  console.log(process.cwd());
   const fullPath = path.join(process.cwd(), "/public/mds/test.md");
-  console.log(fullPath);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   return fileContents;
 };
 
 const TestPage = async () => {
   const data = await getMdData();
+  const fileList = await getFileList();
+
   return (
     <>
       <div className="container w-2/3 justify-center flex">
         <MarkdownSection data={data} />
       </div>
+      <Flask />
+      <PlayVideo fileList={fileList} />
 
       <main className="flex h-screen items-center justify-center">
         <div className="w-96">
