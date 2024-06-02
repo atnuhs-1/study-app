@@ -1,9 +1,9 @@
 import PlayVideo from "./play-video";
 
-export default function VideoSection() {
+export default function VideoSection({videoPath}: {videoPath: string}) {
   return (
     <div className="aspect-video">
-      <PlayVideo />
+      <PlayVideo videoPath={videoPath}/>
     </div>
   );
 }

@@ -1,20 +1,26 @@
+import Link from "next/link";
 import { getImagesBase64 } from "../static";
 
 export default async function Sidebar() {
+  const thumbnails = await getImagesBase64();
 
-  const thumbnails =  await getImagesBase64();
   return (
     <>
       <div className="col-span-3 w-full h-full flex flex-col items-start space-y-2 ">
-        {thumbnails.map((imageDataURI, index) => (
-          <img
-            className="rounded"
-            width="130"
-   
+        {thumbnails.map((image, index) => (
+          <Link
+            href={`/flask/video/${encodeURIComponent(image.name.split(".")[0])}.mp4`}
+            className="w-full flex space-x-2"
             key={index}
-            src={imageDataURI}
-            alt={`Processed Image ${index}`}
-          />
+          >
+            <img
+              className="rounded"
+              width="130"
+              src={image.src}
+              alt={`Thumbnail ${index}`}
+            />
+            <p className="font-light antialiased ">{image.name}</p>
+          </Link>
         ))}
       </div>
     </>
