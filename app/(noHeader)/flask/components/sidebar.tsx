@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getImagesBase64 } from "../static";
+import { getThumbnailsBase64 } from "../static";
 
 export default async function Sidebar() {
-  const thumbnails = await getImagesBase64();
+  const thumbnails = await getThumbnailsBase64();
 
   return (
     <>

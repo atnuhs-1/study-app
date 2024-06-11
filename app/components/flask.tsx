@@ -1,18 +1,9 @@
-"use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-export default function Flask() {
-  const [message, setMessage] = useState("");
+export  async function getRecognize() {
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:5000/")
-      .then((res) => res.text())
-      .then((data) => setMessage(data));
-    console.log("aiueo");
-  }, []);
-  return (
-    <div>
-      <p>{message}</p>
-    </div>
-  );
+  const data = await fetch("http://127.0.0.1:5000/")
+  
+  return data;
 }
+

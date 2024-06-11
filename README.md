@@ -1,3 +1,7 @@
+## 実際のアプリケーションの画面
+![application_image2](./application_img2.png)
+![application_image](./application_img.png)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
