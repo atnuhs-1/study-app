@@ -13,7 +13,7 @@ export default function ImageGridView({ images }: { images: Image[] }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg-grid-cols-5 ">
       {images.map((image, index) => (
-        <div>
+        <div key={index}>
           <Link
             href={`/flask/video/${encodeURIComponent(
               image.name.split(".")[0]

@@ -1,7 +1,6 @@
-// "use server"
 import fs from 'fs';
 import path from 'path';
-import { GetServerSideProps } from 'next';
+
 
 // export async function getImagesBase64() {
 //     const imageDirectory = '/Users/atnuhs/College/Class/S5/isp1/project6/static/thumbnails';

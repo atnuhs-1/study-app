@@ -11,11 +11,8 @@ import VideoGridView from "./components/video-grid-view";
 export default async function Page() {
   const thumbnails = await getThumbnailsBase64();
 
- 
-
   return (
     <>
-      <Header />
       <VideoGridView thumbnails={thumbnails}/>
     </>
   );
