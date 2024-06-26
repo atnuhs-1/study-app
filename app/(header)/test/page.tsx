@@ -2,7 +2,6 @@ import React from "react";
 import fs from "fs";
 import path from "path";
 import MarkdownSection from "./components/markdown-section";
-import Flask from "@/app/components/flask";
 import { SheetSide } from "./components/sheet-side";
 
 const todos = [
@@ -29,6 +28,7 @@ const TestPage = async () => {
         <MarkdownSection data={data} />
       </div>
       <SheetSide />
+      <input type="text" className="border-rose-600 border"/>
 
 
     </>

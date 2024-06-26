@@ -1,8 +1,17 @@
 import Link from "next/link";
-import { getThumbnailsBase64 } from "../static";
+// import { getThumbnailsBase64 } from "../static";
 
-export default async function Sidebar() {
-  const thumbnails = await getThumbnailsBase64();
+interface Thumbnail {
+  name: string;
+  src: string;
+}
+
+export default function Sidebar({
+  thumbnails,
+}: {
+  thumbnails: Thumbnail[];
+}) {
+  // const thumbnails = await getThumbnailsBase64();
 
   return (
     <>

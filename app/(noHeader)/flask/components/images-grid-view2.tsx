@@ -21,7 +21,7 @@ export default function ImageGridView2({
 
     try {
       // Flaskのエンドポイントにリクエストを送信
-      const response = await fetch("/api/processVideo", {
+      const response = await fetch("/api/flask/processVideo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

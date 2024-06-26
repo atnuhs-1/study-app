@@ -1,40 +1,56 @@
-// "use client"
+"use client";
 
-import Header from "../../components/header";
 import VideoSection from "../../components/video-section";
-import CommentSection from "../../components/comment-section";
 import Sidebar from "../../components/sidebar";
-import { fetchVideoData, getImagesBase64 } from "../../static";
 import ImageGridView from "../../components/images-grid-view";
-import ImageGridView2 from "../../components/images-grid-view2";
+import { useEffect, useState } from "react";
+import { fetchImages, fetchThumbnails, playVideo } from "@/app/api/videoApi";
+import Skeletons from "../../components/skeletons";
 
-const VideoPage = async ({ params }: { params: { name: string } }) => {
+const VideoPage = ({ params }: { params: { name: string } }) => {
   const { name } = params;
-
-  // Flaskのエンドポイントにリクエストを送信
-  let processedData;
-  try {
-    processedData = await fetchVideoData(name);
-  } catch (error) {
-    console.error('Error fetching video data:', error);
-    return <div>Error loading video data</div>;
-  }
-  
-
-  // Flaskの処理が完了してから画像を取得
-  const images = await getImagesBase64();
   const videoUrl = `/static/videos/${encodeURIComponent(name as string)}`;
-  // const videoUrl = `/Users/atnuhs/College/Class/S5/isp1/project6/static/videos/${encodeURIComponent(name as string)}`
+
+  const [images, setImages] = useState([]); // Image-grid-viewの画像
+  const [thumbnails, setThumbnails] = useState([]); // Sidebarのサムネイル画像
+  const [loading, setLoading] = useState(true); // ローディング状態の管理
+  const [num_faces, setNumFaces] = useState([])
+
+  // const handleImageClick = (name) => {
+  //   fetchImages(name);
+  // };
+
+
+  useEffect(() => {
+    const init = async () => {
+      setLoading(true); // データ取得開始時にローディング状態をtrueに設定
+      const thumbnailsData = await fetchThumbnails();
+      setThumbnails(thumbnailsData);
+
+      const num_faces_data = await playVideo(name);
+      console.log(num_faces_data)
+      // setNumFaces(num_faces_data);
+
+      const imagesData = await fetchImages();
+      setImages(imagesData);
+      setLoading(false); // データ取得完了時にローディング状態をfalseに設定
+    };
+
+    init();
+  }, [name]);
 
   return (
     <>
       <div className="h-screen mx-10 grid sm:grid-cols-1 lg:grid-cols-12 gap-5">
-        <div className="col-span-9 grid grid-rows-2 space-y-5">
-          <VideoSection videoPath={videoUrl}/>
-          <ImageGridView images={images}/>
+        <div className="col-span-9 grid grid-rows-2 space-y-5 ">
+          <VideoSection videoPath={videoUrl} />
+          {loading ? 
+            <Skeletons count={9}/> // ローディング中はスケルトンを表示
+            : 
+            <ImageGridView images={images} loading={loading}/>}
         </div>
 
-        <Sidebar />
+        <Sidebar thumbnails={thumbnails} />
       </div>
     </>
   );

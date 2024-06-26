@@ -3,7 +3,7 @@ import ReactPlayer from "react-player/lazy";
 
 
 
-export default async function PlayVideo({videoPath}: {videoPath: string}) {
+export default function PlayVideo({videoPath}: {videoPath: string}) {
 
   const path = "movie1_1.mp4";
   console.log(`videoPath: ${videoPath}`);

@@ -1,15 +1,26 @@
+"use client"
 
-import Link from "next/link";
-import Header from "./components/header";
-
-import { getThumbnailsBase64 } from "./static";
-import { getRecognize } from "@/app/components/flask";
-import { Button } from "@/components/ui/button";
+import { fetchThumbnails } from "@/app/api/videoApi";
 import VideoGridView from "./components/video-grid-view";
+import { useEffect, useState } from "react";
 
+export default  function Page() {
+  const [thumbnails, setThumbnails] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+  // 初期表示時の処理
+  useEffect(() => {
 
-export default async function Page() {
-  const thumbnails = await getThumbnailsBase64();
+    const init = async () => {
+      setLoading(true); // データ取得開始時にローディング状態をtrueに設定
+      const thumbnailsData = await fetchThumbnails();
+      setThumbnails(thumbnailsData);
+
+      setLoading(false); // データ取得完了時にローディング状態をfalseに設定
+    };
+
+    init();
+  }, []);
 
   return (
     <>
