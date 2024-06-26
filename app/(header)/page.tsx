@@ -25,7 +25,7 @@ export default async function Home() {
       <div className="flex h-screen justify-center">
         <div className="w-96">
           <FormArea />
-          <TodoList todoAllData={todoAllData} />
+          {/* <TodoList todoAllData={todoAllData} /> */}
         </div>
       </div>
     </>

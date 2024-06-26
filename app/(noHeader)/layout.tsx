@@ -8,9 +8,9 @@ export default function Layout({
 }>) {
   return (
     <div>
-      <Button className="fixed  z-20 top-16 left-1" variant="outline" asChild>
+      {/* <Button className="fixed  z-20 top-16 left-1" variant="outline" asChild>
         <Link href="/">Home</Link>
-      </Button>
+      </Button> */}
       {children}
     </div>
   );

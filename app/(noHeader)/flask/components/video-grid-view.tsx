@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { getImagesBase64 } from "../static";
+// import { getImagesBase64 } from "../static";
 import { Button } from "@/components/ui/button";
 
 interface Thumbnail {
@@ -22,11 +22,11 @@ export default function VideoGridView({
             href={`/flask/video/${encodeURIComponent(
               image.name.split(".")[0]
             )}.mp4`}
-            className="w-full"
+            className="w-[290px]"
             key={index}
           >
             <img
-              className="rounded"
+              className="rounded-md border-2"
               width="330"
               src={image.src}
               alt={`Thumbnail ${index}`}
@@ -35,7 +35,7 @@ export default function VideoGridView({
           </Link>
         ))}
       </div>
-      <Button>Process</Button>
+      
     </div>
   );
 }
